@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update Task</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="/bootstrap.min.css" th:href="@{/bootstrap.min.css}" /> 
+
+</head>
+<body>
+	<h1>Update Task</h1>
+	<div>
+	<form th:object="${task}" th:action="@{save/{taskId}(taskId=${task.taskId})}" action="#"  method="GET">
+		<table>
+			<tr>
+				<td>Task Name:</td>
+		        <td><input type="text" th:field="*{taskName}" class="form-control" placeholder="taskName" /></td>
+		    	<td><div style="clear: both; display: block; height: 10px;"></div></td>
+		    	<td th:if="${#fields.hasErrors('taskName')}" th:errors="*{taskName}">Task Name Error</td>
+	    	</tr>
+	    	
+	    	<tr>
+	    		<td>Technology Used:</td>
+		        <td><input type="text" th:field="*{technologyUsed}" class="form-control" placeholder="technologyUsed" /></td>
+		    	<td><div style="clear: both; display: block; height: 10px;"></div></td>
+		    	<td th:if="${#fields.hasErrors('technologyUsed')}" th:errors="*{technologyUsed}">Technology Used Error</td>
+	    	</tr>
+	    	
+	    	<tr>
+	    		<td>Description:</td>
+		        <td><input type="text" th:field="*{description}" class="form-control" placeholder="description"/></td>
+		    	<td><div style="clear: both; display: block; height: 10px;"></div></td>
+		    	<td th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description Error</td>
+	    	</tr>
+	    	
+	    	<tr>
+	    		<td>Start Date</td>
+		        <td><input type="date" th:field="*{startDate}" class="form-control" placeholder="startDate" /></td>
+		    	<td><div style="clear: both; display: block; height: 10px;"></div></td>
+		    	<td th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}">Start Date Error</td>
+		    </tr>
+		    	
+	    	<tr>
+	    		<td>Completion Date:</td>
+		        <td> <input type="date" th:field="*{completionDate}" class="form-control" placeholder="completionDate"/></td>
+		    	<td><div style="clear: both; display: block; height: 10px;"></div></td>
+		    	<td th:if="${#fields.hasErrors('completionDate')}" th:errors="*{completionDate}">Completion Date Error</td>
+	    	</tr>
+	    	
+	    	<tr>
+	    		<td>Status:</td>
+ 				<!--<td><input type="text" th:field="*{status}" class="form-control" placeholder="status"/></td> -->
+ 			 	<td><input type="radio" th:field="*{status}" class="form-control" placeholder="status" name="Status" value="New"/>New<br></br></td>	 			
+  				<td><input type="radio" th:field="*{status}" class="form-control" placeholder="status" name="Status" value="In Progress"/>In Progress<br></br></td>
+  				<td><input type="radio" th:field="*{status}" class="form-control" placeholder="status" name="Status" value="Completed"/>Completed<br></br></td>
+		    	<td th:if="${#fields.hasErrors('status')}" th:errors="*{status}">Status Error</td>
+	    	</tr>
+	    	
+	    	<tr>
+	    		<td>Review:</td>
+		        <td><input type="text" th:field="*{review}" class="form-control" placeholder="review" /></td>
+		    	<td><div style="clear: both; display: block; height: 10px;"></div></td>
+		    	<td th:if="${#fields.hasErrors('review')}" th:errors="*{review}">Review Error</td>
+	    	</tr>
+	    	
+	    	<tr>
+	    		<td>Remarks:</td>
+		        <td><input type="text" th:field="*{remarks}" class="form-control" placeholder="remarks" /></td>
+		        <td><div style="clear: both; display: block; height: 10px;"></div></td>
+		        <td th:if="${#fields.hasErrors('remarks')}" th:errors="*{remarks}">Remarks Error</td>
+	    	</tr>
+	    	
+	    	<tr>
+				<td> <input type="submit" class= "btn btn-success" value="Save" /></td>
+		       	<td><div style="clear: both; display: block; height: 10px;"></div></td>
+				<td><input type="reset" class= "btn btn-danger" value="Reset" /></td>				
+			</tr>
+			
+			<tr>
+				<td><a href="/tasklist/all" class="btn btn-success">View tasks</a></td>
+			</tr>
+			
+		</table>
+    </form>
+    </div>
+
+</body>
+</html>
