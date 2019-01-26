@@ -4,3 +4,4 @@ A simple Spring Boot application.
 Technologies Used:
 Spring Boot
 Java 8
+Spring MVC + Maven + Hibernate CRUD Example Complete
